@@ -68,6 +68,7 @@ class Match(models.Model):
     motd = models.BooleanField(default=False)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     fixture = models.IntegerField()
+    postponed = models.BooleanField(default=False)
     home = models.CharField(max_length=60)
     away = models.CharField(max_length=60)
     date = models.DateField()

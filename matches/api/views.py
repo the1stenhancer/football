@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, pagination
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import MatchSerializer
 from .mfilters import MatchFilter
@@ -10,6 +10,7 @@ class MatchListView(generics.ListAPIView):
     serializer_class = MatchSerializer
     filter_backends = (DjangoFilterBackend,)
     filterset_class = MatchFilter
+    pagination_class = pagination.PageNumberPagination
 
 
 class MatchDetailView(generics.RetrieveAPIView):

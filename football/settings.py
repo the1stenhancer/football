@@ -49,7 +49,9 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_CLASSES': [
         'django_filters.rest_framework.DjangoFilterBackend',
-    ]
+    ],
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2,
 }
 
 MIDDLEWARE = [
