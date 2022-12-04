@@ -10,7 +10,7 @@ class MatchListView(generics.ListAPIView):
     serializer_class = MatchSerializer
     filter_backends = (DjangoFilterBackend,)
     filterset_class = MatchFilter
-    pagination_class = pagination.PageNumberPagination
+    pagination_class = pagination.LimitOffsetPagination
 
 
 class MatchDetailView(generics.RetrieveAPIView):

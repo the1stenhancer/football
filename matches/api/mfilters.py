@@ -4,20 +4,8 @@ from ..models import Match
 
 
 class MatchFilter(filters.FilterSet):
+    country = filters.CharFilter(field_name="country__name", lookup_expr='icontains')
     class Meta:
         model = Match
-        fields = ('league', 'motd', 'home', 'away', 'date')
-        filter_overrides = {
-            models.CharField: {
-                'filter_class': filters.CharFilter,
-                'extra': lambda f: {
-                    'lookup_expr': 'icontains',
-                },
-            },
-            models.DateField: {
-                'filter_class': filters.DateFilter,
-                'extra': lambda f: {
-                    'lookup_expr': 'exact',
-                },
-            },
-        }
+        fields = ('country', 'hot_pick')
+

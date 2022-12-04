@@ -17,8 +17,8 @@ class LeagueAdmin(admin.ModelAdmin):
 
 @admin.register(Match)
 class MatchAdmin(admin.ModelAdmin):
-    list_display = ['league', 'fixture', 'home', 'away', 'date', 'time', 'results', 'motd']
-    list_filter = ['league', 'fixture', 'home', 'away', 'date', 'motd']
+    list_display = ['league', 'fixture', 'home', 'away', 'date', 'time', 'results', 'hot_pick']
+    list_filter = ['league', 'fixture', 'home', 'away', 'date', 'hot_pick']
     ordering = ('date', 'time')
 
 

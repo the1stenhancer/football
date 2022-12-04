@@ -65,7 +65,8 @@ class Result(models.Model):
 class Match(models.Model):
     objects = models.Manager()
     id = models.BigAutoField(primary_key=True)
-    motd = models.BooleanField(default=False)
+    hot_pick = models.BooleanField(default=False)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     fixture = models.IntegerField()
     postponed = models.BooleanField(default=False)

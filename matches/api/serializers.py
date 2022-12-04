@@ -5,15 +5,14 @@ from ..models import *
 class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
-        fields = ('name', 'cc')
+        fields = ('name',)
 
 
 class LeagueSerializer(serializers.ModelSerializer):
-    country = CountrySerializer(read_only=True)
 
     class Meta:
         model = League
-        fields = ('name', 'country')
+        fields = ('name',)
 
 
 class PredictionSerializer(serializers.ModelSerializer):
@@ -29,10 +28,11 @@ class ResultSerializer(serializers.ModelSerializer):
 
 
 class MatchSerializer(serializers.ModelSerializer):
+    country = CountrySerializer(read_only=True)
     league = LeagueSerializer(read_only=True)
     predictions = PredictionSerializer(read_only=True)
     results = ResultSerializer(read_only=True)
 
     class Meta:
         model = Match
-        fields = ('id', 'league', 'fixture', 'postponed', 'home', 'away', 'date', 'time', 'predictions', 'results')
+        fields = ('id', 'country', 'league', 'fixture', 'postponed', 'hot_pick', 'home', 'away', 'date', 'time', 'predictions', 'results')
